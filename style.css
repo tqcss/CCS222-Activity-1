@@ -292,8 +292,10 @@ nav .logo::before {
 
 /* Main Styles */
 main {
+    position: relative;
     background-color: #111;
-    justify-content: center;
+    flex-direction: column;
+    align-items: center;
 }
 
 main::before {
@@ -302,7 +304,7 @@ main::before {
     content: "";
     height: 25vh;
     width: 100%;
-    top: 75vh;
+    top: -25vh;
     left: 0;
     background: linear-gradient(rgba(0, 0, 0, 0) 0%, #111 100%);
     z-index: 1;
@@ -417,6 +419,80 @@ main::before {
     z-index: 2;
 }
 
+.recent-blogs {
+    margin: 5rem 30px;
+}
+
+.recent-blogs h3{
+    font-family: Kanit;
+    color: white;
+    font-size: 2rem;
+    text-align: center;
+}
+
+.blogs {
+    display: grid;
+    grid-template-columns: 33.33% 33.33% 33.33%;
+    color: white;
+    margin: 30px;
+    max-width: 70rem;
+    gap: 20px;
+    align-items: center;
+    justify-content: center;
+}
+
+.blogs a {
+    display: flex;
+    position: relative;
+    flex-direction: column-reverse;
+    aspect-ratio: 4 / 5;
+    border-radius: 20px;
+    background-size: cover;
+    max-width: 25rem;
+}
+
+.blogs a:hover h4 {
+    height: calc(100% - 20px);
+}
+
+.blogs h4 {
+    padding: 10px;
+    font-family: Poppins;
+    font-size: 1.2rem;
+    background-color: rgba(17, 17, 17, 0.8);
+    height: calc(2.4rem + 20px);
+    transition: 0.5s;
+}
+
+.blogs p {
+    display: block;
+    font-family: Poppins;
+    font-size: 1rem;
+    padding: 10px;
+    opacity: 0%;
+    position: absolute;
+    transition: 0.5s;
+}
+
+.blogs a:hover p {
+    display: block;
+    opacity: 100%;
+}
+
+.blog1 {
+    background-image: url(assets/prague-bg.jpg);
+}
+
+.blog2 {
+    background-image: url(assets/barcelona-street.jpg);
+    transition-delay: 0.2s;
+}
+
+.blog3 {
+    background-image: url(assets/luggage-bg.jpg);
+    transition-delay: 0.4s;
+}
+
 /* Media Queries */
 @media (max-width: 900px) {
     .introduction {
@@ -425,6 +501,10 @@ main::before {
 
     .deck {
         display: none;
+    }
+
+    .blogs {
+        grid-template-columns: 1fr;
     }
 }
 
@@ -473,6 +553,7 @@ main::before {
         height: 40px;
         width: 40px;
         filter: brightness(200%) contrast(60%);
+        background-size: contain;
     }
 
     #explore-button::after {
