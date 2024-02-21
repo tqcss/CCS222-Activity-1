@@ -18,25 +18,47 @@
 }
 
 @keyframes fade-in-top {
-    0% {
+    from {
         filter: opacity(0%);
         transform: translateY(-20px);
     }
-    100% {
+    to {
         filter: opacity(100%);
         transform: translateY(0px);
     }
 }
 
 @keyframes fade-in-bottom {
-    0% {
+    from {
         filter: opacity(0%);
         transform: translateY(20px);
     }
-    100% {
+    to {
         filter: opacity(100%);
         transform: translateY(0px);
     }
+}
+
+.anim-right {
+    transition: 0.5s;
+    filter: opacity(0%);
+    transform: translateX(-20px);
+}
+
+.play-right {
+    filter: opacity(100%);
+    transform: translateX(0px);
+}
+
+.anim-left {
+    transition: 0.5s;
+    filter: opacity(0%);
+    transform: translateX(20px);
+}
+
+.play-left {
+    filter: opacity(100%);
+    transform: translateX(0px);
 }
 
 ::-webkit-scrollbar {
@@ -62,6 +84,10 @@
 
 .flex{
     display: flex;
+}
+
+body {
+    overflow-x: hidden;
 }
 
 header {
@@ -149,8 +175,8 @@ nav .logo::before {
 
 .link-container a {
     position: relative;
-    font-family: Poppins;
-    font-size: 0.9rem;
+    font-family: Kanit;
+    font-size: 1rem;
     color: #333;
     text-decoration: none;
     text-transform: capitalize;
@@ -208,16 +234,15 @@ nav .logo::before {
 
 .headline-container h1 {
     font-size: 5.5rem;
-    color: #111;
+    color: #222;
     text-align: center;
-    text-decoration: double solid #111;
     filter: opacity(0%);
     animation: fade-in-top 0.5s 0.5s forwards;
 }
 
 .headline-container h2 {
     font-size: 2.5rem;
-    color: #111;
+    color: #222;
     text-align: center;
     filter: opacity(0%);
     animation: fade-in-bottom 0.5s 0.8s forwards;
@@ -253,8 +278,7 @@ nav .logo::before {
 
 main {
     background-color: #111;
-    padding-top: 15rem;
-    min-height: 100svh;
+    justify-content: center;
 }
 
 main::before {
@@ -263,79 +287,144 @@ main::before {
     content: "";
     height: 25svh;
     width: 100%;
-    bottom: 0;
+    top: 75svh;
     left: 0;
     background: linear-gradient(rgba(0,0,0,0) 0%, #111 100%);
     z-index: 1;
 }
 
-main h2 {
-    font-family: Kanit;
-    font-size: 4rem;
-    color: white;
-    text-align: center;
-}
-
-.recent-blogs-section {
+.introduction {
     display: grid;
-    gap: 0.5rem;
-    margin: 3rem 3rem;
+    grid-template-columns: 40% 60%;
+    color: white;
+    margin: 30px;
+    max-width: 70rem;
+    /* column-gap: 10px; */
+    align-items: center;
+}
+.introduction article {
+    padding-right: 1rem;
+    margin: 4rem 0;
 }
 
-.recent-blog1 {
-    position: relative;
-    grid-column-start: 1;
-    grid-column-end: 3;
-    grid-row-start: 1;
-    grid-row-end: 4;
-    background-image: url(assets/prague-bg.jpg);
-    background-position: center;
-    background-size: cover;
-    min-height: 30rem;
-    width: 100%;
-}
-
-.recent-blog1 .content-wrapper {
-    position: absolute;
-    height: 60px;
-    top: 100%;
-    left: 0;
-    width: 100%;
-    padding: 30px 15px 20px 15px;
-    background-color: rgba(17, 17, 17, 0.7);
-    transition: 1s;
-}
-
-.recent-blog1:hover .content-wrapper {
-    height: 100%;
-}
-
-.recent-blog1 h3 {
+.introduction h3 {
     font-family: Kanit;
     font-size: 2rem;
-    color: white;
-    letter-spacing: 2px;
 }
 
-.recent-blog2 {
-    background-color: blue;
-    grid-column-start: 3;
-    grid-column-end: 4;
-    grid-row-start: 1;
-    grid-row-end: 3;
+.introduction p {
+    font-family: Poppins;
+    font-size: 1rem;
+    margin-top: 1rem;
 }
 
-.recent-blogs-section a{
-    background-color: green;
-    grid-column-start: 3;
-    grid-column-end: 4;
-    grid-row-start: 3;
-    grid-row-end: 4;
+.deck {
+    display: flex;
+    position: relative;
+    overflow: visible;
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    background: rgb(255,255,255);
+    background: radial-gradient(circle, rgba(255,255,255,0.15) 0%, rgba(255,255,255,0) 70%);
+    transition: 1s background;
+}
+
+.deck div {
+    position: absolute;
+    border-style: solid;
+    border-width: 1.5rem 1.5rem 6rem 1.5rem;
+    width: 15rem;
+    height: 17rem;
+    top: 50%;
+    left: 50%;
+    box-shadow: rgba(17, 17, 17, 0.5) 0 0 10px;
+    background-position: center;
+    background-size: cover;
+    z-index: 1;
+}
+
+.deck h4 {
+    position: absolute;
+    width: 100%;
+    top: calc(100% + 1rem);
+    font-family: Poppins;
+    text-transform: uppercase;
+    font-size: 1.5rem;
+    color: #111;
+    text-align: center;
+    text-anchor: middle;
+}
+
+.card1 {
+    background-image: url(assets/card1.jpg);
+    transform: translate(calc(-50% - 2rem), -50%) rotateZ(-5deg);
+    border-color: #ddd;
+    transition: 0.6s;
+}
+
+.card2 {
+    background-image: url(assets/card2.jpg);
+    transform: translate(-50%, -50%);
+    border-color: #aaa;
+    transition: 0.8s;
+}
+
+.card3 {
+    background-image: url(assets/card3.jpg);
+    transform: translate(calc(-50% + 2rem), -50%) rotateZ(5deg);
+    border-color: #777;
+    transition: 0.7s;
+}
+
+.deck:hover > * {
+    filter: blur(3px) brightness(50%);
+    border-color: white;
+}
+
+.deck:hover .card1 {
+    transform: translate(calc(-50% - 8rem), -50%) rotateZ(-15deg);
+}
+
+.deck:hover .card2 {
+    transform: translate(-50%, calc(-50% - 3rem));
+}
+
+.deck:hover .card3 {
+    transform: translate(calc(-50% + 8rem), -50%) rotateZ(15deg);
+}
+
+.card1:hover {
+    filter: none;
+    z-index: 2;
+}
+
+.card2:hover {
+    filter: none;
+    z-index: 2;
+}
+
+.card3:hover {
+    filter: none;
+    z-index: 2;
+}
+
+@media (max-width: 900px) {
+    .introduction {
+        grid-template-columns: 1fr;
+    }
+
+    .deck {
+        display: none;
+    }
 }
 
 @media (max-width: 800px) {
     .headline-container h1 {
         font-size: 3.7rem;
+    }
+
+    .headline-container h2 {
+        font-size: 2rem;
     }
 
     .search-container {
