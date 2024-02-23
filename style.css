@@ -10,6 +10,15 @@
 }
 
 /* Keyframe Animations */
+@keyframes rotate {
+    0% {
+        transform: rotateZ(0deg);
+    }
+    100% {
+        transform: rotateZ(360deg);
+    }
+}
+
 @keyframes hop-right {
     50% {
         transform: translateY(-3px) rotateZ(25deg);
@@ -313,6 +322,7 @@ main::before {
 /* Introduction Section Styles */
 .introduction {
     display: grid;
+    position: relative;
     grid-template-columns: 40% 60%;
     color: white;
     margin: 30px;
@@ -412,11 +422,45 @@ main::before {
     transform: translate(calc(-50% + 8rem), -50%) rotateZ(15deg);
 }
 
-.card1:hover,
-.card2:hover,
-.card3:hover {
+.deck > div:hover {
     filter: none;
     z-index: 2;
+}
+
+.shape-art {
+    position: absolute;
+    opacity: 2%;
+    z-index: 0;
+}
+
+#hexagon1 {
+    width: 400px;
+    height: 400px;
+    bottom: -100px;
+    left: -140px;
+    background-image: url(assets/hexagon.svg);
+    background-size: contain;
+    animation: rotate 40s linear infinite;
+}
+
+#hexagon2 {
+    width: 150px;
+    height: 150px;
+    bottom: -200px;
+    left: 200px;
+    background-image: url(assets/hexagon.svg);
+    background-size: contain;
+    animation: rotate 10s linear infinite;
+}
+
+#hexagon3 {
+    width: 200px;
+    height: 200px;
+    top: 0;
+    right: -50px;
+    background-image: url(assets/hexagon.svg);
+    background-size: contain;
+    animation: rotate 20s linear infinite;
 }
 
 .recent-blogs {
