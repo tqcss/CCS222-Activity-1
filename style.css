@@ -219,7 +219,7 @@ nav .logo::before {
     left: -5%;
 }
 
-/* Hero Styles */
+/* Hero Image Styles */
 .hero {
     position: absolute;
     height: 120vh;
@@ -305,6 +305,7 @@ main {
     background-color: #111;
     flex-direction: column;
     align-items: center;
+    padding: 0 30px;
 }
 
 main::before {
@@ -325,13 +326,13 @@ main::before {
     position: relative;
     grid-template-columns: 40% 60%;
     color: white;
-    margin: 30px;
-    max-width: 70rem;
+    margin: 30px 0;
+    /* max-width: 70rem; */
     align-items: center;
 }
 
 .introduction article {
-    padding-right: 1rem;
+    padding-left: 5rem;
     margin: 4rem 0;
 }
 
@@ -433,6 +434,7 @@ main::before {
     z-index: 0;
 }
 
+/* Background Art */
 #hexagon1 {
     width: 400px;
     height: 400px;
@@ -463,78 +465,131 @@ main::before {
     animation: rotate 20s linear infinite;
 }
 
+/* Recent Blogs Section */
 .recent-blogs {
-    margin: 5rem 30px;
-}
-
-.recent-blogs h3{
-    font-family: Kanit;
-    color: white;
-    font-size: 2rem;
-    text-align: center;
-}
-
-.blogs {
-    display: grid;
-    grid-template-columns: 33.33% 33.33% 33.33%;
-    color: white;
     margin: 30px;
-    max-width: 70rem;
-    gap: 20px;
-    align-items: center;
-    justify-content: center;
+    /* margin-top: 5rem; */
+    width: 100%;
 }
 
-.blogs a {
+.recent-blogs > h3 {
+    font-family: Kanit;
+    font-size: 2rem;
+    color: white;
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.blog-container {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr;
+    grid-template-rows: 2fr 1fr;
+    gap: 1rem;
+    height: 30rem;
+}
+
+.blog-container h3 {
+    font-family: Poppins;
+    font-size: 1.3rem;
+    text-transform: capitalize;
+    margin-bottom: 5px;
+}
+
+.blog-container p {
+    height: 0;
+    filter: opacity(0%);
+    font-family: Poppins;
+    font-size: 0.9rem;
+}
+
+.blog-container > div {
     display: flex;
-    position: relative;
-    flex-direction: column-reverse;
-    aspect-ratio: 4 / 5;
-    border-radius: 20px;
+    flex-direction: column;
+    justify-content: end;
+    background-position: center;
+    background-repeat: no-repeat;
     background-size: cover;
-    max-width: 25rem;
+    box-shadow: black 0 0 10px;
+    border-radius: 20px;
+    transition: 0.5s background-position;
 }
 
-.blogs a:hover h4 {
-    height: calc(100% - 20px);
-}
-
-.blogs h4 {
-    padding: 10px;
-    font-family: Poppins;
-    font-size: 1.2rem;
-    background-color: rgba(17, 17, 17, 0.8);
-    height: calc(2.4rem + 20px);
+.blog-container > div:hover p{
+    height: fit-content;
+    filter: opacity(100%);
     transition: 0.5s;
 }
 
-.blogs p {
-    display: block;
-    font-family: Poppins;
-    font-size: 1rem;
+.blog-text-container {
     padding: 10px;
+    color: white;
+    border-bottom-right-radius: 20px;
+    border-bottom-left-radius: 20px;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+.blog-container a {
+    background-color: #a8ca58;
+    padding: 3px 8px;
+    border-radius: 5px;
+    color: #111;
+    font-family: Poppins;
+    font-size: 0.9rem;
+    display: none;
     opacity: 0%;
-    position: absolute;
-    transition: 0.5s;
+    width: fit-content;
+    margin: 3px 0 0 auto;
 }
 
-.blogs a:hover p {
+.blog-container > div:hover a{
     display: block;
     opacity: 100%;
 }
 
+
 .blog1 {
-    background-image: url(assets/prague-bg.jpg);
+    grid-row: 1 / 3;
+    background-image: url(assets/antarctica-bg.jpg);
+}
+
+.blog1:hover {
+    background-image: url(assets/antarctica-blurred.jpg);
 }
 
 .blog2 {
-    background-image: url(assets/barcelona-street.jpg);
-    transition-delay: 0.2s;
+    grid-row: 1 / 2;
+    background-image: url(assets/prague-bg.jpg);
+}
+
+.blog2:hover {
+    background-image: url(assets/prague-bg-blurred.jpg);
 }
 
 .blog3 {
+    background-image: url(assets/italy-bg.jpg);
+}
+
+.blog3:hover {
+    background-image: url(assets/italy-bg-blurred.jpg);
+}
+
+.read-more {
+    grid-column: 2 / 4;
     background-image: url(assets/luggage-bg.jpg);
-    transition-delay: 0.4s;
+}
+
+.read-more:hover {
+    background-image: url(assets/luggage-bg-blurred.jpg);
+}
+
+.read-more * {
+    text-align: center;
+}
+
+.read-more a {
+    margin: 0 auto;
+    font-size: 1rem;
+    padding: 3px 40px;
 }
 
 /* Media Queries */
@@ -543,6 +598,10 @@ main::before {
         grid-template-columns: 1fr;
     }
 
+    .introduction article {
+        padding-left: 0;
+    }
+    
     .deck {
         display: none;
     }
@@ -563,6 +622,19 @@ main::before {
 
     .search-container {
         display: none;
+    }
+}
+
+@media (max-width: 700px) {
+    .blog-container {
+        all: unset;
+        display: flex;
+        flex-direction: column;
+        gap: 30px;
+    }
+
+    .blog-container > * {
+        height: 400px;
     }
 }
 
