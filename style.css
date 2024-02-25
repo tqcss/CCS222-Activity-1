@@ -698,8 +698,9 @@ footer {
 
 .subscribe-form button {
     padding: 10px;
-    background-color: #3498db;
-    color: #fff;
+    background-color: #a8ca58;
+    color: #111;
+    font-family: Poppins;
     border: none;
     cursor: pointer;
     transition: background-color 0.3s ease;
