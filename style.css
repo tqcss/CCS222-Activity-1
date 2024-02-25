@@ -104,6 +104,7 @@
 /* Body Styles */
 body {
     overflow-x: hidden;
+    background-color: #111;
 }
 
 /* Header Styles */
@@ -306,6 +307,7 @@ main {
     flex-direction: column;
     align-items: center;
     padding: 0 30px;
+    padding-bottom: 10rem;
 }
 
 main::before {
@@ -465,6 +467,26 @@ main::before {
     animation: rotate 20s linear infinite;
 }
 
+#hexagon4 {
+    width: 400px;
+    height: 400px;
+    bottom: 50px;
+    right: 50px;
+    background-image: url(assets/hexagon.svg);
+    background-size: contain;
+    animation: rotate 20s linear infinite;
+}
+
+#hexagon5 {
+    width: 150px;
+    height: 150px;
+    bottom: 25px;
+    right: 450px;
+    background-image: url(assets/hexagon.svg);
+    background-size: contain;
+    animation: rotate 10s linear infinite;
+}
+
 /* Recent Blogs Section */
 .recent-blogs {
     margin: 30px;
@@ -496,8 +518,7 @@ main::before {
 }
 
 .blog-container p {
-    height: 0;
-    filter: opacity(0%);
+    display: none;
     font-family: Poppins;
     font-size: 0.9rem;
 }
@@ -515,9 +536,7 @@ main::before {
 }
 
 .blog-container > div:hover p{
-    height: fit-content;
-    filter: opacity(100%);
-    transition: 0.5s;
+    display: block;
 }
 
 .blog-text-container {
@@ -536,7 +555,6 @@ main::before {
     font-family: Poppins;
     font-size: 0.9rem;
     display: none;
-    opacity: 0%;
     width: fit-content;
     margin: 3px 0 0 auto;
 }
@@ -592,6 +610,151 @@ main::before {
     padding: 3px 40px;
 }
 
+/* About Me Section */
+
+.about-me {
+    display: grid;
+    grid-template-columns: 50% 50%;
+    align-items: center;
+    justify-content: center;
+    margin-top: 10rem;
+}
+
+.about-me img {
+    height: auto;
+    margin: 0 auto;
+    border-radius: 50%;
+    border: linear-gradient(0deg, 0% white, 100% rgba(0, 0, 0, 0)) solid 5px;
+}
+
+.about-content {
+    margin-right: 5rem;
+    text-align: right;
+}
+
+.about-content h3 {
+    font-family: Kanit;
+    font-size: 2rem;
+    color: white;
+    margin-bottom: 1rem;
+}
+
+.about-content p {
+    font-family: Poppins;
+    color: white;
+    font-size: 1rem;
+    margin-left: 2rem;
+}
+
+/* Footer Styles */
+
+footer {
+    background-color: #222;
+    padding: 40px 20px;
+    font-family: Poppins;
+    color: white;
+    text-align: center;
+    border-top: solid 3px #333;
+    border-radius: 20px 20px 0 0;
+}
+
+.footer-container {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+
+}
+
+.subscribe {
+    max-width: 400px;
+}
+
+.subscribe h3,
+.social-links h3 {
+    font-size: 1.5em;
+    margin-bottom: 10px;
+}
+
+.subscribe p {
+    font-size: 0.9em;
+    margin-bottom: 20px;
+}
+
+.subscribe-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.subscribe-form label,
+.subscribe-form input {
+    margin-bottom: 10px;
+}
+
+.subscribe-form input {
+    padding: 10px;
+    width: 100%;
+}
+
+.subscribe-form button {
+    padding: 10px;
+    background-color: #3498db;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.subscribe-form button:hover {
+    background-color: #2980b9;
+}
+
+.social-links {
+    margin-top: 5rem;
+}
+
+.social-links ul {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.social-links li {
+    margin: 0 10px;
+}
+
+.social-links a {
+    display: block;
+    width: 2rem;
+    height: 2rem;
+    background-size: contain;
+}
+
+.facebook {
+    background-image: url(assets/facebook-logo.png);
+    filter: invert();
+}
+
+.twitter {
+    background-image: url(assets/twitter-icon.png);
+    filter: invert();
+}
+
+.instagram {
+    background-image: url(assets/instagram-logo.png);
+    filter: invert();
+}
+
+/* Copyright Section */
+
+.copyright {
+    margin-top: 20px;
+    font-size: 0.8em;
+}
+
+
 /* Media Queries */
 @media (max-width: 900px) {
     .introduction {
@@ -608,6 +771,22 @@ main::before {
 
     .blogs {
         grid-template-columns: 1fr;
+    }
+
+    .about-me {
+        display: flex;
+    }
+
+    .about-me img {
+        display: none;
+    }
+
+    .about-content {
+        margin-right: unset;
+    }
+
+    .about-content p {
+        margin-left: 3rem;
     }
 }
 
