@@ -4,21 +4,22 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hermes'</title>
+    <title>Home | Hermes'</title>
     <link rel="stylesheet" href="style.css">
     <link rel="shortcut icon" href="assets/logo.svg" type="image/svg">
 </head>
 
 <body>
+    <button id="scrollToTopBtn" onclick="scrollToTop()"></button>
     <header>
         <nav class="flex">
-            <a class="logo" href="#">Hermes'</a>
+            <a class="logo" href="index.html">Hermes'</a>
             <div class="flex search-container">
                 <input name="search" type="search" placeholder="Search...">
-                <button class="flex"><img src="assets/search-symbol.svg" draggable="false"></button>
+                <button class="flex"><a href="explore.html"><img src="assets/search-symbol.svg" draggable="false"></a></button>
             </div>
             <ul class="flex link-container">
-                <li><a id="explore-button" href="#explore">Explore</a></li>
+                <li><a id="explore-button" href="explore.html">Explore</a></li>
                 <li><a id="about-button" href="#about-me">About Me</a></li>
             </ul>
         </nav>
@@ -26,7 +27,7 @@
             <div class="flex headline-container">
                 <h1>Exploring the Extraordinary</h1>
                 <h2>with <a href="https://www.facebook.com/profile.php?id=100011604497320" target="_blank">@Ken_Villareal</a></h2>
-                <a id="see-blogs-button" href="#">See blogs<img src="assets/open-symbol.svg" draggable="false"></a>
+                <a id="see-blogs-button" href="explore.html">See blogs<img src="assets/open-symbol.svg" draggable="false"></a>
             </div>
         </div>
         <div class="hero"></div>
@@ -66,25 +67,25 @@
                             the picturesque mountains. Our recent journey to the serene mountainside was a perfect blend
                             of adventure, relaxation, and breathtaking views.
                         </p>
-                        <a>Read Blog</a>
+                        <a href="blogs/antarctica-blog.html">Read Blog</a>
                     </div>
                 </div>
                 <div class="blog2">
                     <div class="blog-text-container">
                         <h3>Nightlife Ideas When in Prague</h3>
-                        <a>Read Blog</a>
+                        <a href="blogs/czechia-blog.html">Read Blog</a>
                     </div>
                 </div>
                 <div class="blog3">
                     <div class="blog-text-container">
                         <h3>All You Need to Know About Traveling by Bus in Italy</h3>
-                        <a>Read Blog</a>
+                        <a href="blogs/prague-blog.html">Read Blog</a>
                     </div>
                 </div>
                 <div class="read-more">
                     <div class="blog-text-container">
                         <h3>Read other articles</h3>
-                        <a>Explore</a>
+                        <a href="explore.html">Explore</a>
                     </div>
                 </div>                                                                                                                                  
             </div>
@@ -118,12 +119,12 @@
             <div class="subscribe">
                 <h3>Subscribe to Our Newsletter</h3>
                 <p>Stay updated with our latest travel stories, tips, and exclusive offers.</p>
-                <form action="your-subscribe-endpoint" method="POST" class="subscribe-form">
+                <form class="subscribe-form">
                     <label for="name">Name:</label>
                     <input type="text" id="name" name="name" placeholder="Your Name" required>
                     <label for="email">Email:</label>
                     <input type="email" id="email" name="email" placeholder="Your Email" required>
-                    <button type="submit">Subscribe</button>
+                    <button type="submit" onclick="alert('Thank you for subscribing to our newsletter!')">Subscribe</button>
                 </form>
             </div>
     
@@ -145,6 +146,4 @@
 </body>
 
 </html>
-
-<!-- https://uxwing.com/wp-content/themes/uxwing/download/brands-and-social-media/x-social-media-black-icon.png -->
  

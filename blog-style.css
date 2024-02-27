@@ -1,0 +1,277 @@
+/* Fonts */
+@font-face {
+    font-family: Kanit;
+    src: url(assets/fonts/Kanit-Medium.ttf);
+}
+
+@font-face {
+    font-family: Poppins;
+    src: url(assets/fonts/Poppins-Regular.ttf);
+}
+
+/* Animation Classes */
+.anim-right {
+    transition: 0.5s;
+    filter: opacity(0%);
+    transform: translateX(-20px);
+}
+
+.play-right {
+    filter: opacity(100%);
+    transform: translateX(0px);
+}
+
+.anim-left {
+    transition: 0.5s;
+    filter: opacity(0%);
+    transform: translateX(20px);
+}
+
+.play-left {
+    filter: opacity(100%);
+    transform: translateX(0px);
+}
+
+/* Scrollbar Styles */
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+::-webkit-scrollbar-track {
+    background: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #888;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #555;
+}
+
+/* Resetting Margin and Padding */
+*, *::before, *::after {
+    margin: 0;
+    padding: 0;
+}
+
+/* Flex Container */
+.flex {
+    display: flex;
+}
+
+/* Body Styles */
+body {
+    overflow-x: hidden;
+    background-color: #111;
+}
+
+/* Header Styles */
+header {
+    position: sticky;
+    height: 60px;
+    top: 0;
+}
+
+/* Navigation Styles */
+nav {
+    position: absolute;
+    height: inherit;
+    width: 100%;
+    top: 0;
+    left: 0;
+    align-items: center;
+    justify-content: space-between;
+    z-index: 999;
+    background-color: #111;
+    border-bottom: solid 3px #222;
+}
+
+nav .logo {
+    position: relative;
+    color: #fff;
+    font-family: Kanit;
+    font-size: 1.2rem;
+    text-transform: uppercase;
+    text-decoration: none;
+    margin: 0 4rem;
+}
+
+nav .logo::before {
+    display: block;
+    position: absolute;
+    content: "";
+    height: 2rem;
+    top: -10%;
+    left: calc(-2rem - 5px);
+    background-image: url(assets/logo.svg);
+    background-repeat: no-repeat;
+    background-size: contain;
+    aspect-ratio: 1;
+    filter: brightness(100%) contrast(0%);
+}
+
+/* Search Container Styles */
+
+.search-container {
+    height: calc(100% - 30px);
+    width: 400px;
+}
+
+.search-container input {
+    width: 100%;
+    border: none;
+    font-family: Poppins;
+    text-indent: 1rem;
+    border-radius: 20px 0 0 20px;
+}
+
+.search-container button {
+    align-items: center;
+    justify-content: center;
+    background-color: white;
+    border: none;
+    aspect-ratio: 1 / 1;
+    border-radius: 0 20px 20px 0;
+    padding-right: 3px;
+}
+
+.search-container button img {
+    filter: brightness(200%) contrast(10%);
+    height: 22px;
+    aspect-ratio: 1 / 1;
+}
+
+.search-container button:hover img {
+    animation: hop-right 0.5s;
+}
+
+/* Link Container Styles */
+
+.link-container {
+    height: 100%;
+    list-style: none;
+    align-items: center;
+    gap: 20px;
+    margin: 0 20px 0 25px;
+}
+
+.link-container a {
+    position: relative;
+    font-family: Kanit;
+    font-size: 1rem;
+    color: #fff;
+    text-decoration: none;
+    text-transform: capitalize;
+}
+
+.link-container a::before {
+    position: absolute;
+    display: block;
+    content: "";
+    height: 2px;
+    width: 0%;
+    bottom: -2px;
+    left: 50%;
+    background-color: #fff;
+    border-radius: 3px;
+    transition: 0.5s;
+}
+
+.link-container a:hover::before {
+    width: 110%;
+    left: -5%;
+}
+
+/* Main Styles */
+main {
+    margin: 20px 50px;
+    font-family: Poppins;
+    color: white
+}
+
+main > img {
+    width: 100%;
+}
+
+main h1{
+    font-size: 2rem;
+}
+
+main p,
+i {
+    text-align: justify;
+    font-size: 1rem;
+}
+
+main p {
+    text-indent: 2rem;
+}
+
+main article {
+    margin-top: 2rem;
+}
+
+main section {
+    margin-top: 1rem;
+}
+
+main ol {
+    padding: 10px;
+}
+
+main li {
+    padding: 10px;
+}
+
+/* Footer Styles */
+footer {
+    background-color: black;
+    padding: 40px 20px;
+    font-family: Poppins;
+    color: white;
+    text-align: center;
+}
+
+.copyright {
+    margin-top: 20px;
+    font-size: 0.8em;
+}
+
+/* Media Queries */
+@media (max-width: 800px) {
+    .search-container {
+        display: none;
+    }
+}
+
+@media (max-width: 404px) {
+    #explore-button,
+    #about-button {
+        position: relative;
+        visibility: hidden;
+        font-size: 0.7rem;
+    }
+
+    #explore-button::after,
+    #about-button::after {
+        visibility: visible;
+        display: block;
+        position: absolute;
+        content: "";
+        top: -50%;
+        left: 0;
+        height: 40px;
+        width: 40px;
+        filter: brightness(200%) contrast(60%);
+        background-size: contain;
+    }
+
+    #explore-button::after {
+        background-image: url(assets/explore-icon.svg);
+    }
+
+    #about-button::after {
+        background-image: url(assets/person-icon.svg);
+    }
+}

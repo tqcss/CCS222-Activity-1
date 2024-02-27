@@ -28,3 +28,21 @@ window.addEventListener("mousemove", event => {
 
     hero.style.transform = `translateX(calc(-50% - ${xValue * moveSpeed}px)) translateY(calc(-50% - ${yValue * moveSpeed}px))`;
 });
+
+window.onscroll = function() {
+    toggleScrollTopButton();
+};
+
+function toggleScrollTopButton() {
+    var btn = document.getElementById("scrollToTopBtn");
+    if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+        btn.style.display = "block";
+    } else {
+        btn.style.display = "none";
+    }
+}
+
+function scrollToTop() {
+    document.body.scrollTop = 0;
+    document.documentElement.scrollTop = 0;
+}
